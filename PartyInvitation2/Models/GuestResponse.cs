@@ -14,6 +14,7 @@ namespace PartyInvitation2.Models
 
 
         [Required(ErrorMessage = "Please enter your email")]
+        [EmailAddress]
         // [RegularExpression(".+\\@.+\\.+", ErrorMessage ="Pelase enter a valid email address")]
             public string Email { get; set; }
 

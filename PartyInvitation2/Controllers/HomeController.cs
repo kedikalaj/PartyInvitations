@@ -13,7 +13,7 @@ namespace PartyInvitation2.Controllers
         public ViewResult Index()
         {
             int hour = DateTime.Now.Hour;
-            ViewBag.Greeting = hour < 12 ? "Good Morning" : "Good Afternoon";
+            ViewBag.Greeting = hour < 12 ? "Good Morning" : "Good Evening";
             return View();
         }
 
@@ -24,10 +24,11 @@ namespace PartyInvitation2.Controllers
         }
 
         [HttpPost]
-        public ViewResult RsvpForm(GuestResponse guestResponse)
+        public ActionResult RsvpForm(GuestResponse guestResponse)
         {
             if (ModelState.IsValid)
             {
+                string name = guestResponse.Name;
                 // TODO: Email response to the party organizer
                 return View("Thanks", guestResponse);
             }
